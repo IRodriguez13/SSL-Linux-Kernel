@@ -1,4 +1,4 @@
-# 🧠 SharpCore Subsystem for Linux (SSL)
+#  SharpCore Subsystem for Linux (SSL)
 
 > A lightweight, cross-platform, developer-friendly Linux virtualization subsystem.  
 > Runs Alpine-based kernels in seconds using QEMU and .NET as CLI env 
