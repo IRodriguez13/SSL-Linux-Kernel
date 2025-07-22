@@ -39,16 +39,29 @@ Built with ❤️ in .NET, and powered by QEMU + Alpine Linux, SSL is:
 
 ## 🔧 Architecture Overview
 
-Host System (Windows / Linux / macOS)
-  |
-  |---> SharpCore CLI (dotnet tool)
-  |       |---- PreflightCheck()   🔍
-  |       |----- QemuBridgeConnection 🔌
-  |
-  |---------> QEMU VM (Alpine-based)
-          |------------- /mnt/hostshare       📂
-          |--------------- Port 5000            🌐
-          |-------------- DISPLAY=:0.0         🖼️
++------------------------------+
+|        SharpCore CLI        |
+|  (.NET / CommandLineParser) |
++------------------------------+
+             |
+             v
++------------------------------+
+|  QemuBridgeConnection (C#)   |
+|  Handles VM lifecycle        |
++------------------------------+
+             |
+             v
++------------------------------+
+|     QEMU Virtual Machine     |
+|  Alpine-based guest system   |
+|   (Windows. MACOS, Linux)    | 
++------------------------------+
+             |
+             v
++-------------------------------------------+
+|  Host-VM Shared Folder (/mnt/hostshare)   |
+|  Port Forwarding (e.g., :5000)            |
++-------------------------------------------+
 
 ---
 
